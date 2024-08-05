@@ -1,0 +1,114 @@
+<!-- views/add.ejs -->
+<%- include('partials/header'); -%>
+
+<!-- add new book form -->
+<!-- <div class="form__box"> -->
+  
+<div class="makeCenter">
+    <div class="card" >
+      
+      <div class="card-body">
+        <!-- <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        <h3><%= "Add a new book 👇" %></h3>
+
+        <form action="/add" method="post" onsubmit="return validateForm()">
+          <!-- <img class="card-img-top" src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?w=996&t=st=1719259610~exp=1719260210~hmac=557d209507f1bff4e838fb4ab173fe25bc5f53b341adda786bb2673c35369e19" style="width: 10rem;" alt="Card image cap"> -->
+          
+          <p class="card-text">Add a book that you have read to our collection.</p>
+
+        <div class="form__input"> 
+          <div class="form__part1">
+            <label for="isbn">ISBN</label>
+            <input
+              id="isbn"
+              class="add"
+              type="text"
+              name="isbn"
+              autocomplete="off"
+              placeholder="isbn"
+              required
+            />
+            <label for="author">Author</label>
+            <input
+              id="author"
+              class="add"
+              type="text"
+              name="author"
+              autocomplete="on"
+              placeholder="author"
+              required
+            />
+            <label for="rating">Rating</label>
+            <input
+              id="rating"
+              class="add"
+              type="number"
+              step="0.1"
+              max="10"
+              name="rating"
+              autocomplete="off"
+              placeholder="rating (0 - 10)"
+              required
+            />
+            <label for="readOn">Read On</label>
+            <input
+              id="readOn"
+              class="add"
+              type="date"
+              name="readOn"
+              autocomplete="off"
+              placeholder="date read (yyyy-mm-dd)"
+              required
+            />
+          </div>
+          <div class="form__part2">
+            <label for="title">Title</label>
+            <input
+              id="title"
+              class="add"
+              type="text"
+              name="title"
+              autocomplete="off"
+              placeholder="title"
+              required
+            />
+            <label for="descriptions">Descriptions</label>
+            <textarea
+              id="descriptions"
+              class="add"
+              name="descriptions"
+              autocomplete="off"
+              placeholder="descriptions"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <!-- submit button -->
+        <button id="add-btn" class="btn add-btn" type="submit">➕</button>
+        <!-- cancel button -->
+        <button class="btn cancel-btn" type="button"><a href="/" class="cancel">Cancel</a></button>
+
+
+  
+
+ 
+  </form>
+</div>
+</div>
+</div>
+<!-- </div> -->
+
+<script>
+  function validateForm() {
+    const readOn = document.getElementById('readOn').value;
+    if (!readOn) {
+      alert('Read On date cannot be empty');
+      return false;
+    }
+    return true;
+  }
+</script>
+
+<%- include('partials/footer'); -%>

@@ -1,0 +1,259 @@
+/* public/styles/main.css */
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: black;
+    text-align: var(--bs-body-text-align);
+    /* background-color: var(--bs-body-bg); */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .card{
+  
+  /* padding: 10px;
+  margin: 10px;
+  width: 900px; */
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  color: wheat;
+  opacity: 0.7;
+
+
+}
+
+.makeCenter{
+  /* background-image: linear-gradient(
+  45deg,
+  hsl(0deg 0% 0%) 0%,
+  hsl(196deg 100% 14%) 9%,
+  hsl(194deg 66% 27%) 18%,
+  hsl(196deg 35% 47%) 27%,
+  hsl(201deg 48% 61%) 36%,
+  hsl(219deg 63% 70%) 45%,
+  hsl(267deg 59% 74%) 55%,
+  hsl(323deg 80% 72%) 64%,
+  hsl(332deg 64% 59%) 73%,
+  hsl(327deg 73% 37%) 82%,
+  hsl(329deg 100% 22%) 91%,
+  hsl(0deg 0% 0%) 100%
+); */
+/* background-image: url('https://static01.nyt.com/images/2018/06/03/books/review/03GLASSIE-SUB/03GLASSIE-SUB-superJumbo.jpg'); */
+background-image: url('https://blog.lootcrate.com/wp-content/uploads/2018/11/gc_dn_bookheader.gif');
+background-size: cover;
+background-color: transparent;
+
+
+}
+  
+  .bi {
+    margin-right: 10px;
+}
+
+  .intro {
+    text-align: center;
+    padding: 20px;
+    background-color: papayawhip;
+  }
+  
+  .container__main, .container__form {
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 30px; */
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: papayawhip;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  /* .form__box {
+    background-color: papayawhip;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  } */
+  
+  .form__input input, .form__input textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .edit__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn__edit {
+    background-color: #f0ad4e;
+    color: white;
+  }
+  
+  .btn__delete {
+    background-color: #d9534f;
+    color: white;
+  }
+  
+  .btn a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .btn__edit {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.nishButton{
+  background-color: green;
+  font-family: 'times new roman', cursive;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.nishButton1{
+  background-color: rgb(16, 96, 255);
+  font-family: 'times new roman', cursive;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.h1, .h2, h1, h2  {
+  /* font-family: 'times new roman', cursive; */
+  font-size: 2rem;
+  padding: 10px;
+  /* border-radius: 10px; */
+  /* margin: 8px; */
+  align-items: center;
+  text-align: center;
+}
+
+.dated, .rating, .book_details {
+  padding: 10px;  
+}
+
+.nishButton2{
+  background-color: purple;
+  font-family: 'times new roman', cursive;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+
+.nishButton:hover{
+  background-color: green;
+  color: #ffe989;
+}
+
+footer{
+  width: 100%;
+  height: 115px;
+  position: static;
+  bottom:0px;
+  text-align: center;
+  align-items: center;
+  margin: 0px !important;
+  color: black !important;
+  background-image: linear-gradient(
+  165deg,
+  hsl(0deg 0% 0%) 0%,
+  hsl(194deg 71% 9%) 9%,
+  hsl(196deg 35% 18%) 18%,
+  hsl(197deg 23% 27%) 27%,
+  hsl(201deg 25% 32%) 36%,
+  hsl(220deg 30% 33%) 45%,
+  hsl(274deg 29% 31%) 55%,
+  hsl(326deg 58% 26%) 64%,
+  hsl(330deg 100% 19%) 73%,
+  hsl(334deg 100% 16%) 82%,
+  hsl(339deg 100% 12%) 91%,
+  hsl(0deg 0% 0%) 100%
+);
+
+}
+
+.delete_form_edit_btn__wrapper {
+  display: inline-flex;
+  color: brown;
+  padding: 10px;
+  margin: auto;
+}
+
+.navbar{
+  background-image: linear-gradient(
+  165deg,
+  hsl(0deg 0% 0%) 0%,
+  hsl(194deg 71% 9%) 9%,
+  hsl(196deg 35% 18%) 18%,
+  hsl(197deg 23% 27%) 27%,
+  hsl(201deg 25% 32%) 36%,
+  hsl(220deg 30% 33%) 45%,
+  hsl(274deg 29% 31%) 55%,
+  hsl(326deg 58% 26%) 64%,
+  hsl(330deg 100% 19%) 73%,
+  hsl(334deg 100% 16%) 82%,
+  hsl(339deg 100% 12%) 91%,
+  hsl(0deg 0% 0%) 100%
+);
+  background-color: transparent !important;
+  font-weight: bold;
+  font-family: Coffee, "Arial Narrow Bold", sans-serif;
+  padding: 10px;
+}
+
+.ColorBlack{
+  color: wheat !important;
+  font-weight: bold;
+  font-family: Coffee, "Arial Narrow Bold", sans-serif;
+  padding: 10px;
+  /* font-weight: 900; */
+}
+
+.ColorBlack1{
+  color: wheat !important;
+  font-weight: bold;
+  font-family: Coffee, "Arial Narrow Bold", sans-serif;
+  padding: 10px;
+  /* font-weight: 900; */
+}
+
+
+
+
+
