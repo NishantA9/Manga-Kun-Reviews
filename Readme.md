@@ -1,16 +1,64 @@
-Manga-Kun-Reviews
+Manga-Kun-Reviews 
 
-This project is a book collection application built with Node.js, Express, and PostgreSQL. The application allows users to add, view, edit, and delete books from their collection. Each book entry includes details like the ISBN, author, title, description, rating, and the date it was read. Additionally, the application fetches and displays book covers from the Open Library API.
+Github Link: https://github.com/NishantA9/Manga-Kun-Reviews
 
-Install the project in any directory then go to that directory by the command terminal
+Manga-Kun Reviews is a personal book collection web application built using Node.js, Express, PostgreSQL, and EJS.
+The application allows users to add, view, edit, and delete books they have read through a clean CRUD-based workflow.
 
-cd "your project directory"
+Each book entry includes:
+1) Title
+2) Author
+3) ISBN
+4) Description
+5) Personal rating
+6) Date read
 
-Make sure you have Node and Nodemon, then run "npm install" and then "npm i nodemon"
+The application also integrates with the Open Library Covers API to fetch and display book cover images based on ISBN.
+If a cover is unavailable, the app gracefully falls back without breaking the user experience.
 
-Also Run the queries.sql file
+✨ Features
+1) View a list of all books in the collection.
+2) Add new books with metadata and ISBN.
+3) Edit existing book details inline
+4) Delete books from the collection
+5) Sort books by:
+    Most recent read
+    Rating
+    Author name
+6) Fetch and display book covers using the Open Library API
 
-then run the project "nodemon index.js"
+🛠 Tech Stack
+
+Backend: Node.js, Express
+Frontend: EJS (server-side rendering), HTML, CSS, Bootstrap
+Database: PostgreSQL
+External API: Open Library Covers API
+Other Tools: Axios, Nodemon
+
+⚙️ Setup Instructions
+1) Install the project in any directory and navigate to it using the terminal: cd your-project-directory
+
+2) Install dependencies:
+npm install
+npm install nodemon
+
+3) Create a .env file with your PostgreSQL credentials:
+DB_USER=
+DB_HOST=
+DB_DATABASE=
+DB_PASSWORD=
+DB_PORT=
+
+4) Run the SQL queries from queries.sql to set up the database tables.
+Start the server: nodemon index.js
+Open the application in your browser: http://localhost:3000
+
+🔮 Future Improvements
+1) Add authentication and user-specific book collections
+2) Improve form validation and error handling
+3) Add pagination and search functionality
+4) Refactor frontend interactivity using a client-side framework
+
 
 Made By Nishant Acharekar
 
