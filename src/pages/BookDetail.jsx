@@ -38,24 +38,40 @@ const handleDelete = async () => {
 
   return (
     <div className="page-container">
-      <div className="book-detail">
-      <div style={{ textAlign: "center" }}>
-        <img src={book.cover_url} alt={book.title} style={{ height: "300px" }} />
-        <h1>{book.title}</h1>
-        <p><strong>Author:</strong> {book.author}</p>
-        <p><strong>ISBN:</strong> {book.isbn}</p>
-        <p><strong>Rating:</strong> {book.rating} / 10</p>
-        <p><strong>Read on:</strong> {book.read_on}</p>
-        <p><strong>Description:</strong> {book.description}</p>
-      </div>
-        <div style={{ marginTop: "20px" }}>
+      <div className="book-detail-container">
+        <div className="book-detail-image">
+          <img src={book.cover_url} alt={book.title} />
+        </div>
+        
+        <div className="book-detail-content">
+          <div className="book-detail-top">
+            <div className="book-detail-title-section">
+              <h1 className="book-detail-title">{book.title}</h1>
+            </div>
+            <div className="book-detail-meta-top">
+              <div className="meta-left">
+                <p><strong>Author:</strong> {book.author}</p>
+                <p><strong>Rating:</strong> {book.rating} / 10</p>
+              </div>
+              <div className="meta-right">
+                <p><strong>Read On:</strong> {book.read_on}</p>
+                <p><strong>ISBN:</strong> {book.isbn}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="book-detail-description">
+            <h3>Review:</h3>
+            <p>{book.description}</p>
+          </div>
+
           <div className="button-group">
-            <Button onClick={() => handleDelete(book.id)} variant="danger">Delete</Button>
+            <Link to="/"><Button variant="warning">Home</Button></Link>
             <Link to={`/edit/${book.id}`}><Button variant="primary">Edit</Button></Link>
-            <Link to="/"><Button variant="warning">Back Home </Button></Link>
+            <Button onClick={() => handleDelete(book.id)} variant="danger">Delete</Button>
           </div>
         </div>
       </div>
-</div>
-);
+    </div>
+  );
 }

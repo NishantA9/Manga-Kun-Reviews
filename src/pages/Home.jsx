@@ -12,6 +12,8 @@ export default function Home() {
   const [toast, setToast] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [confirm, setConfirm] = useState({ open: false, id: null, title: "" });
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const location = useLocation();
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export default function Home() {
       const { data, error } = await supabase
         .from("books")
         .select("*")
-        .order("rating", { ascending: false });
+        .order("created_at", { ascending: false });
 
       if (!mounted) return;
       if (error) {
@@ -89,9 +91,20 @@ export default function Home() {
     await handleDelete(confirm.id);
     closeConfirm();
   };
-  // derive sorted list
-  const sortedBooks = useMemo(() => {
-    const list = [...books];
+  // derive sorted and filtered list
+  const filteredAndSortedBooks = useMemo(() => {
+    let list = [...books];
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      list = list.filter((book) =>
+        book.title.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query)
+      );
+    }
+
+    // Sort the list
     list.sort((a, b) => {
       let av = a[sortBy];
       let bv = b[sortBy];
@@ -107,13 +120,35 @@ export default function Home() {
       return orderAsc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
     });
     return list;
-  }, [books, sortBy, orderAsc]);
+  }, [books, sortBy, orderAsc, searchQuery]);
+
+  // Pagination
+  const BOOKS_PER_PAGE = 6;
+  const totalPages = Math.ceil(filteredAndSortedBooks.length / BOOKS_PER_PAGE);
+  const paginatedBooks = filteredAndSortedBooks.slice(
+    (currentPage - 1) * BOOKS_PER_PAGE,
+    currentPage * BOOKS_PER_PAGE
+  );
 
   return (
     <>
       <div className="page-container">
         <h1 className="nish">Manga-Kun Reviews</h1>
         <p className="nish1">Hi there! Welcome to Manga-Kun Reviews. Find reviews, add your own, and grade manga you love.</p>
+        
+        {/* Search Bar */}
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search by manga name or author..."
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              setCurrentPage(1);
+            }}
+            className="search-input"
+          />
+        </div>
 
         <div style={{ display: "flex", justifyContent: "center", gap: 12, alignItems: "center", margin: "18px 0" }}>
           <Link to="/add"><Button variant="success">+ New Book</Button></Link>
@@ -138,15 +173,15 @@ export default function Home() {
             </div>
           ))}
 
-          {!isLoading && sortedBooks.length === 0 && (
+          {!isLoading && filteredAndSortedBooks.length === 0 && (
             <div className="empty-state">
-              <h3>No reviews yet</h3>
-              <p>Looks like you haven't added any books. Start by adding your first review.</p>
+              <h3>No reviews found</h3>
+              <p>Try adjusting your search or add your first review.</p>
               <Link to="/add" className="btn-green">Add your first book</Link>
             </div>
           )}
 
-          {!isLoading && sortedBooks.map((book) => (
+          {!isLoading && paginatedBooks.map((book) => (
             <div key={book.id} className="book-card">
               <Link to={`/book/${book.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                 <img src={book.cover_url} alt={book.title} />
@@ -167,6 +202,29 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        {/* Pagination */}
+        {!isLoading && filteredAndSortedBooks.length > BOOKS_PER_PAGE && (
+          <div className="pagination">
+            <button
+              className="pagination-btn"
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+            >
+              ← Previous
+            </button>
+            <div className="pagination-info">
+              Page {currentPage} of {totalPages}
+            </div>
+            <button
+              className="pagination-btn"
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+            >
+              Next →
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Confirmation modal */}
