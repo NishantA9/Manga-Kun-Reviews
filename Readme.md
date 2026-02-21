@@ -1,7 +1,8 @@
 # **📚 Manga-Kun Reviews**
 
 🔗 **Live Repository:**
-https://github.com/NishantA9/Manga-Kun-Reviews
+Project Link: https://nishant-manga-kun-reviews.vercel.app/
+Repo Link: https://github.com/NishantA9/Manga-Kun-Reviews
 
 ## **🧩 Overview**
 
