@@ -43,9 +43,11 @@ export default function Home() {
       const p = sessionStorage.getItem("pending_toast");
       if (p) {
         const parsed = JSON.parse(p);
-        setToast({ message: parsed.message, type: parsed.type || "success" });
+        setTimeout(() => {
+          setToast({ message: parsed.message, type: parsed.type || "success" });
+          setTimeout(() => setToast(null), 2800);
+        }, 0);
         sessionStorage.removeItem("pending_toast");
-        setTimeout(() => setToast(null), 2800);
         return;
       }
     } catch {
@@ -166,6 +168,14 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* Confirmation modal */}
+      <ConfirmModal
+        open={confirm.open}
+        title={confirm.title}
+        onConfirm={confirmDelete}
+        onCancel={closeConfirm}
+      />
 
       {/* toast container */}
       <div className="toast-container">

@@ -38,10 +38,10 @@ export default function AddBook() {
 
     if (error) {
       console.error(error);
-      try { sessionStorage.setItem("pending_toast", JSON.stringify({ message: "Failed to add book", type: "error" })); } catch {}
+      try { sessionStorage.setItem("pending_toast", JSON.stringify({ message: "Failed to add book", type: "error" })); } catch {error("Failed to set toast in sessionStorage", e); }
       navigate("/");
     } else {
-      try { sessionStorage.setItem("pending_toast", JSON.stringify({ message: "Book added", type: "success" })); } catch {}
+      try { sessionStorage.setItem("pending_toast", JSON.stringify({ message: "Book added", type: "success" })); } catch {error("Failed to set toast in sessionStorage", e); }
       navigate("/");
     }
   };
