@@ -5,6 +5,7 @@ export default function Footer() {
         <p className="footer-p">© Nishant Acharekar {new Date().getFullYear()}</p>
 
         <div className="footer-links">
+          <a href="https://github.com/NishantA9/Manga-Kun-Reviews" target="_blank">About Us</a>
           <a href="https://nishantacharekarportfolio.netlify.app/" target="_blank">Portfolio</a>
           <a href="https://github.com/NishantA9" target="_blank">GitHub</a>
           <a href="https://www.linkedin.com/in/nishantacharekar/" target="_blank">LinkedIn</a>
